@@ -82,7 +82,7 @@ int DISTANCE = DURATION / 29.41;
 
 void dispenseSanitiser()
 {
-  
+  //to be filled in.
 }
 
 void Connect_ThingSpeak(int temperature)
