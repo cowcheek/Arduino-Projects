@@ -12,6 +12,8 @@ String apiKey = "SJXTO9XEL2OIYGI5";     //  Enter your Write API key from ThingS
 const char *ssid =  "Kaushik's wifi-5G";     // replace with your wifi ssid and wpa2 key
 const char *pass =  "*******"; //WiFi password
 const char* server = "api.thingspeak.com";  //api server 
+
+int pump_out = 9;  //connect pump to pin no.9
  
 #define echo 5 //echopin at 5
 #define trig 4 // trig at 4
@@ -22,6 +24,7 @@ void setup()
   pinMode (trig,OUTPUT);
   pinMode(echo,INPUT);
   pinMode (sensePin, INPUT);
+  pinMode(pump_out,OUTPUT); //pinMode for pump
        Serial.begin(115200);
        delay(10);
        Serial.println("Connecting to ");
@@ -82,7 +85,9 @@ int DISTANCE = DURATION / 29.41;
 
 void dispenseSanitiser()
 {
-  //to be filled in.
+  digitalWrite(pump_out,HIGH);   //set pin high
+  delay(2000);                //pumps for 2 secs
+  digitalWrite(pump_out,LOW);   //set pin low
 }
 
 void Connect_ThingSpeak(int temperature)
